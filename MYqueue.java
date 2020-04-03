@@ -8,18 +8,18 @@ public class MYqueue {
 	}
 	
 	public void insert(Player elem) {
-		theQueue.addFirst(elem);
+		theQueue.add(elem);
 	}
 	
 	public String remove() {
-		String temp = theQueue.getLast().toString();
-		theQueue.removeLast();
+		String temp = theQueue.getFirst().toString();
+		theQueue.removeFirst();
 		
 		return temp;
 	}
 	
 	public String peek() {
-		return theQueue.getLast().toString();
+		return theQueue.getFirst().toString();
 	}
 	
 	public boolean isEmpty() {
@@ -32,8 +32,8 @@ public class MYqueue {
 		LinkedList<Player> temp = theQueue;
 		String queueString = "";
 		while(!temp.isEmpty()) {
-			queueString = queueString + temp.getLast().toString() + " ";
-			temp.removeLast();
+			queueString = queueString + temp.getFirst().toString() + " ";
+			temp.removeFirst();
 		}
 		
 		return queueString;
