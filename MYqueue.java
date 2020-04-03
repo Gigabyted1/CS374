@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class MYqueue {
 	LinkedList<Player> theQueue;
@@ -12,10 +13,11 @@ public class MYqueue {
 	}
 	
 	public String remove() {
-		String temp = theQueue.getFirst().toString();
-		theQueue.removeFirst();
+		if (theQueue.getFirst() == null) {
+			System.exit(0);
+		}
 		
-		return temp;
+		return theQueue.removeFirst().toString();
 	}
 	
 	public String peek() {
@@ -29,11 +31,17 @@ public class MYqueue {
 	}
 	
 	public String toString() {
-		LinkedList<Player> temp = theQueue;
 		String queueString = "";
-		while(!temp.isEmpty()) {
-			queueString = queueString + temp.getFirst().toString() + " ";
-			temp.removeFirst();
+		Player[] saveVals = new Player[100];
+		int saveSize = 0;
+		while(!theQueue.isEmpty()) {
+			saveVals[saveSize] = theQueue.getFirst();
+			queueString = queueString + theQueue.removeFirst().toString() + " ";
+			saveSize++;
+		}
+		
+		for (Player i : saveVals) {
+			theQueue.add(i);
 		}
 		
 		return queueString;
