@@ -13,7 +13,7 @@ public class MYqueue {
 	}
 	
 	public String remove() {
-		if (theQueue.getFirst() == null) {
+		if (theQueue.getFirst() == null) {		// If first element is null
 			System.exit(0);
 		}
 		
@@ -34,12 +34,15 @@ public class MYqueue {
 		String queueString = "";
 		Player[] saveVals = new Player[100];
 		int saveSize = 0;
-		while(!theQueue.isEmpty()) {
+		
+		// Each iteration stores the player in an array, concatenates the string conversion with the final output, and then removes it.
+		while(!theQueue.isEmpty()) { 
 			saveVals[saveSize] = theQueue.getFirst();
 			queueString = queueString + theQueue.removeFirst().toString() + " ";
 			saveSize++;
 		}
 		
+		// Loads the saved players back into the LinkedList
 		for (Player i : saveVals) {
 			theQueue.add(i);
 		}
