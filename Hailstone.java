@@ -1,3 +1,5 @@
+// Wayne Bloom
+
 import java.util.ArrayList;
 
 public class Hailstone {
@@ -16,7 +18,7 @@ public class Hailstone {
 	public void hailstoneSequencer (long progressNo) {				// Creates a hailstone sequence starting with the passed integer using recursion
 		sequence.add(progressNo);
 		if (progressNo == 1) {				// Exit condition
-			System.exit(0);
+			return;
 		}
 		else {
 			if (progressNo % 2 == 0) {		// If even
