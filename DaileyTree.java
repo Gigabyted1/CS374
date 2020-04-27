@@ -37,16 +37,10 @@ public class DaileyTree {
 		current = parent.left;
 		current = new Node(parent.key + ggparent.key);
 		
-		System.out.println("Left: " + current.key);
-		System.out.println("Left CD: " + currDepth);
-		
 		generateDaileyTree(currDepth + 1, goalDepth, treeToGenerate, current, parent, gparent, ggparent);
 		
 		current = parent.right;
 		current = new Node(parent.key + gparent.key);
-		
-		System.out.println("Right: " + current.key);
-		System.out.println("Right CD: " + currDepth);
 		
 		generateDaileyTree(currDepth + 1, goalDepth, treeToGenerate, current, parent, gparent, ggparent);
 	}
